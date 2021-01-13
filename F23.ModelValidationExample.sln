@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F23.ModelValidationExample", "F23.ModelValidationExample\F23.ModelValidationExample.csproj", "{DF3FD5CE-ADDB-4175-A74E-09EF091E9AD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F23.ModelValidationExample.Tests", "F23.ModelValidationExample.Tests\F23.ModelValidationExample.Tests.csproj", "{00F755C7-20E5-49A2-898A-71335181CBB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF3FD5CE-ADDB-4175-A74E-09EF091E9AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF3FD5CE-ADDB-4175-A74E-09EF091E9AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF3FD5CE-ADDB-4175-A74E-09EF091E9AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF3FD5CE-ADDB-4175-A74E-09EF091E9AD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00F755C7-20E5-49A2-898A-71335181CBB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00F755C7-20E5-49A2-898A-71335181CBB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00F755C7-20E5-49A2-898A-71335181CBB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00F755C7-20E5-49A2-898A-71335181CBB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE0625E4-EFAC-44DD-A2D7-05C7712EA5F8}
+	EndGlobalSection
+EndGlobal

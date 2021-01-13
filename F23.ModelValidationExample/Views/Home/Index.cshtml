@@ -1,0 +1,10 @@
+﻿@model ISampleModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-controller="Home" asp-action="Index">
+    @await Html.PartialAsync("_ISampleModelEditPartial", Model)
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
