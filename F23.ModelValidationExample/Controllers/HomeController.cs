@@ -25,7 +25,22 @@ namespace F23.ModelValidationExample.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(SampleModel model)
+        public IActionResult Index(SimpleValidationViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            return View();
+        }
+
+        public IActionResult Better()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Better(BetterValidationViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);

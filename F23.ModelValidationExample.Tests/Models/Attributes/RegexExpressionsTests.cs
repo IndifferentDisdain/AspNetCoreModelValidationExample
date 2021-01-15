@@ -7,26 +7,6 @@ namespace F23.ModelValidationExample.Tests.Models.Attributes
 {
     public class RegexExpressionsTests
     {
-        public static IEnumerable<object[]> EmailAddressesToCheck =>
-            new List<object[]>
-            {
-                new object[]{"", false},
-                new object[]{"foo", false},
-                new object[]{"foo@", false},
-                new object[]{"foo@foo", false},
-                new object[]{"foo@foo.", false},
-                new object[]{"foo@foo.c", false},
-                new object[]{"jshort@feature23.com", true}
-            };
-
-        [Theory]
-        [MemberData(nameof(EmailAddressesToCheck))]
-        public void ValidateEmailAddressExpression(string valueToCheck, bool expectedResult)
-        {
-            var m = Regex.Match(valueToCheck, RegexExpressions.EmailAddressExpression);
-            Assert.Equal(expectedResult, m.Success);
-        }
-
         public static IEnumerable<object[]> SSNsToCheck =>
             new List<object[]>
             {

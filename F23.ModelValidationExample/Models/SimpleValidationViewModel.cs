@@ -4,51 +4,38 @@ using System.ComponentModel.DataAnnotations;
 
 namespace F23.ModelValidationExample.Models
 {
-    /*
-     * To do:
-     * ReallyRequiredAttribute
-     * SocialSecurityNumberAttribute
-     * EmailAddressAttribute
-     * DateAttribute
-     * AttributeUsage?
-     * 
-     * Model state base controller and view
-     * Client side validation lib
-     * 
-     */
-    public class SampleModel : ISampleModel
+    public class SimpleValidationViewModel
     {
         [Required]
         [StringLength(50)]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required] // ReallyRequired
+        [Required]
         [StringLength(50)]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Email")] // EmailAddress
+        [Display(Name = "Email")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string EmailAddress { get; set; }
 
         [Required]
-        [StringLength(50)]
-        [Display(Name = "SSN")] // SocialSecurityNumber
+        [StringLength(11)]
+        [Display(Name = "SSN")]
         public string SocialSecurityNumber { get; set; }
 
         [Required]
-        [Display(Name = "DOB")] // Date
+        [Display(Name = "DOB")]
         public DateTime? DateOfBirth { get; set; }
 
         [Required]
-        [Display(Name = "Graduation Date")] // Date
-        [DateNotLessThan(nameof(DateOfBirth))]
+        [Display(Name = "Graduation Date")]
         public DateTime? DateOfGraduation { get; set; }
 
         [Required]
-        [EvenNumber(ErrorMessage = "Please enter an even number")]
         [Display(Name = "Enter an Even Number")]
         public int? EvenNumber { get; set; }
     }
