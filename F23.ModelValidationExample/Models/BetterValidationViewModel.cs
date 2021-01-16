@@ -19,13 +19,13 @@ namespace F23.ModelValidationExample.Models
         [Required]
         [StringLength(50)]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
         public string EmailAddress { get; set; }
 
         [Required]
-        [SocialSecurityNumber(ErrorMessage = "Please enter a valid SSN.")]
         [StringLength(11)]
         [Display(Name = "SSN")]
+        [RegularExpression(RegexExpressions.SocialSecurityNumberExpression, ErrorMessage = "Please enter a valid SSN.")]
         public string SocialSecurityNumber { get; set; }
 
         [Required]
@@ -38,8 +38,8 @@ namespace F23.ModelValidationExample.Models
         public DateTime? DateOfGraduation { get; set; }
 
         [Required]
-        [EvenNumber(ErrorMessage = "Please enter an even number.")]
         [Display(Name = "Enter an Even Number")]
+        [EvenNumber(ErrorMessage = "Please enter an even number.")]
         public int? EvenNumber { get; set; }
     }
 }

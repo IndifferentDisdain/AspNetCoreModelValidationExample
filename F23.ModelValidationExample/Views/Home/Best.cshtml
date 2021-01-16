@@ -1,4 +1,4 @@
-﻿@model BestValidationViewModel
+﻿@model BetterValidationViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -76,3 +76,8 @@
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
 </form>
+
+@section Scripts {
+    <!-- Generally you'll want this in your _Layout.cshtml or similar -->
+    <script src="~/js/mvc-validation.js" asp-append-version="true"></script>
+}

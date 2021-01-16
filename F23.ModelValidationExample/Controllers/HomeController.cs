@@ -53,7 +53,7 @@ namespace F23.ModelValidationExample.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Best(BestValidationViewModel model)
+        public IActionResult Best(BetterValidationViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);

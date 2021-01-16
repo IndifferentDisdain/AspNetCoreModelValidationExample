@@ -25,6 +25,7 @@ namespace F23.ModelValidationExample.Models
         [Required]
         [StringLength(11)]
         [Display(Name = "SSN")]
+        [RegularExpression(RegexExpressions.SocialSecurityNumberExpression, ErrorMessage = "Please enter a valid SSN.")]
         public string SocialSecurityNumber { get; set; }
 
         [Required]
