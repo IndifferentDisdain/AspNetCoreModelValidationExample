@@ -1,15 +1,11 @@
 ﻿using F23.ModelValidationExample.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace F23.ModelValidationExample.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -30,6 +26,7 @@ namespace F23.ModelValidationExample.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
+            AddSuccessMessage("Simple model posted successfully!");
             return View();
         }
 
@@ -45,6 +42,23 @@ namespace F23.ModelValidationExample.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
+            AddSuccessMessage("Better model posted successfully!");
+            return View();
+        }
+
+        public IActionResult Best()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Best(BestValidationViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            AddSuccessMessage("Best model posted successfully!");
             return View();
         }
 

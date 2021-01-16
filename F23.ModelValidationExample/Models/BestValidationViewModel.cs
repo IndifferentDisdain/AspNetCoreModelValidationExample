@@ -4,14 +4,25 @@ using System.ComponentModel.DataAnnotations;
 
 namespace F23.ModelValidationExample.Models
 {
-    public class BetterValidationViewModel
+    /*
+     * To do:
+     * ReallyRequiredAttribute
+     * DateAttribute
+     * AttributeUsage?
+     * SSN - client
+     * Date - client
+     * Date - picker?
+     * Even number - client
+     * 
+     */
+    public class BestValidationViewModel
     {
         [Required]
         [StringLength(50)]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required] // ReallyRequired
         [StringLength(50)]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
@@ -23,22 +34,22 @@ namespace F23.ModelValidationExample.Models
         public string EmailAddress { get; set; }
 
         [Required]
-        [SocialSecurityNumber(ErrorMessage = "Please enter a valid SSN.")]
+        [SocialSecurityNumber]
         [StringLength(11)]
         [Display(Name = "SSN")]
         public string SocialSecurityNumber { get; set; }
 
         [Required]
-        [Display(Name = "DOB")]
+        [Display(Name = "DOB")] // Date
         public DateTime? DateOfBirth { get; set; }
 
         [Required]
-        [Display(Name = "Graduation Date")]
-        [DateNotLessThan(nameof(DateOfBirth), ErrorMessage = "Graduation Date must be greater than DOB.")]
+        [Display(Name = "Graduation Date")] // Date
+        [DateNotLessThan(nameof(DateOfBirth))]
         public DateTime? DateOfGraduation { get; set; }
 
         [Required]
-        [EvenNumber(ErrorMessage = "Please enter an even number.")]
+        [EvenNumber(ErrorMessage = "Please enter an even number")]
         [Display(Name = "Enter an Even Number")]
         public int? EvenNumber { get; set; }
     }

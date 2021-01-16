@@ -1,0 +1,72 @@
+﻿@using F23.ModelValidationExample.Controllers
+
+@if (ViewData[ViewDataKeys.WarningMessage] != null)
+{
+    <div class="alert alert-warning alert-dismissable fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidde="true">&times</span>
+        </button>
+        @Html.Raw(ViewData[ViewDataKeys.WarningMessage])
+    </div>
+}
+else if (TempData[ViewDataKeys.WarningMessage] != null)
+{
+    <div class="alert alert-warning alert-dismissable fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidde="true">&times</span>
+        </button>
+        @Html.Raw(TempData[ViewDataKeys.WarningMessage])
+    </div>
+}
+
+@if (ViewData[ViewDataKeys.ErrorMessage] != null)
+{
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidde="true">&times</span>
+        </button>
+        @Html.Raw(ViewData[ViewDataKeys.ErrorMessage])
+    </div>
+}
+else if (TempData[ViewDataKeys.ErrorMessage] != null)
+{
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidde="true">&times</span>
+        </button>
+        @Html.Raw(TempData[ViewDataKeys.ErrorMessage])
+    </div>
+}
+
+@if (ViewData[ViewDataKeys.SuccessMessage] != null)
+{
+    <div class="alert alert-success alert-dismissable fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidde="true">&times</span>
+        </button>
+        @Html.Raw(ViewData[ViewDataKeys.SuccessMessage])
+    </div>
+}
+else if (TempData[ViewDataKeys.SuccessMessage] != null)
+{
+    <div class="alert alert-success alert-dismissable fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidde="true">&times</span>
+        </button>
+        @Html.Raw(TempData[ViewDataKeys.SuccessMessage])
+    </div>
+}
+
+@if (ViewContext.ModelState.IsValid == false)
+{
+    <div class="alert alert-danger" role="alert">
+        <div asp-validation-summary="All" class="danger"></div>
+    </div>
+}
+
+<script>
+    function dismissAlert(thing) {
+        thing.parentNode.remove();
+    }
+</script>
+
