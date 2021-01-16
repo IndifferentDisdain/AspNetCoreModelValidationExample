@@ -76,6 +76,8 @@ function validate(formcontrol) {
     var ds = formcontrol.dataset;
     var element = formcontrol;
 
+    //console.log(ds);
+
     if (!ds.val) {
         return;
     }
@@ -113,6 +115,14 @@ function validate(formcontrol) {
         var expression = new RegExp(ds.valRegexPattern);
         if (!expression.test(element.value)) {
             invalidateControl(element, valMsgSpan, ds.valRegex);
+            return;
+        }
+    }
+
+    // Even Number
+    if (ds.valEvenNumber) {
+        if (element.value % 2 != 0) {
+            invalidateControl(element, valMsgSpan, ds.valEvenNumber);
             return;
         }
     }
