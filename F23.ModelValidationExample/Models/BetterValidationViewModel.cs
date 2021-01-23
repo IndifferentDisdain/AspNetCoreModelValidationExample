@@ -58,8 +58,9 @@ namespace F23.ModelValidationExample.Models
         /// <returns>List of ValidationResult errors</returns>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            Debug.WriteLine("Entering vm.Validate");
+            Debug.WriteLine("Entering BetterValidationViewModel.Validate");
             // Add errors to the collection to invalidate the model.
+            //return new List<ValidationResult>() { new ValidationResult("test error") };
             return new List<ValidationResult>();
         }
     }

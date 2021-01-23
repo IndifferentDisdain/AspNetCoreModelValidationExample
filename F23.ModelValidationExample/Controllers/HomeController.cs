@@ -23,8 +23,12 @@ namespace F23.ModelValidationExample.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Index(SimpleValidationViewModel model)
         {
+            Debug.WriteLine("Entering Index Post");
             if (!ModelState.IsValid)
+            {
+                Debug.WriteLine("ModelsState is not valid");
                 return View(model);
+            }
 
             AddSuccessMessage("Simple model posted successfully!");
             return View();
@@ -39,8 +43,12 @@ namespace F23.ModelValidationExample.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Better(BetterValidationViewModel model)
         {
+            Debug.WriteLine("Entering Better Post");
             if (!ModelState.IsValid)
+            {
+                Debug.WriteLine("ModelsState is not valid");
                 return View(model);
+            }
 
             AddSuccessMessage("Better model posted successfully!");
             return View();
@@ -55,8 +63,12 @@ namespace F23.ModelValidationExample.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Best(BetterValidationViewModel model)
         {
+            Debug.WriteLine("Entering Index Post");
             if (!ModelState.IsValid)
+            {
+                Debug.WriteLine("ModelsState is not valid");
                 return View(model);
+            }
 
             AddSuccessMessage("Best model posted successfully!");
             return View();
