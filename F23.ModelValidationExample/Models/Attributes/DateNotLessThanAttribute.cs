@@ -1,8 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 
 namespace F23.ModelValidationExample.Models.Attributes
 {
+    /// <summary>
+    /// Validation attribute to ensure that a date is not less than
+    /// another specified date.
+    /// </summary>
     public sealed class DateNotLessThanAttribute : ValidationAttribute
     {
         public DateNotLessThanAttribute(string comparisonProperty)
@@ -14,6 +19,7 @@ namespace F23.ModelValidationExample.Models.Attributes
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            Debug.WriteLine("Entering DateNotLessThanAttribute.IsValid");
             var property = validationContext.ObjectType.GetProperty(ComparisonProperty);
             if (property == null)
                 throw new ArgumentException($"Property {ComparisonProperty} not found.");

@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.Extensions.Localization;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace F23.ModelValidationExample.Models.Attributes
 {
+    /// <summary>
+    /// Adapter to add relevant HTML attributes to inputs created from
+    /// properties that are decorated with the DateNotLessThanAttribute
+    /// </summary>
     public class DateNotLessThanAttributeAdapter : AttributeAdapterBase<DateNotLessThanAttribute>
     {
         private readonly DateNotLessThanAttribute _attribute;
@@ -27,8 +28,15 @@ namespace F23.ModelValidationExample.Models.Attributes
                 throw new ArgumentNullException(nameof(context));
             }
 
-            MergeAttribute(context.Attributes, "data-val-date-not-less-than-target", _attribute.ComparisonProperty);
-            MergeAttribute(context.Attributes, "data-val-date-not-less-than", _attribute.ErrorMessage);
+            MergeAttribute(
+                context.Attributes, 
+                "data-val-date-not-less-than-target", 
+                _attribute.ComparisonProperty);
+
+            MergeAttribute(
+                context.Attributes, 
+                "data-val-date-not-less-than", 
+                _attribute.ErrorMessage);
         }
 
         public override string GetErrorMessage(ModelValidationContextBase validationContext)

@@ -2,6 +2,9 @@
 
 namespace F23.ModelValidationExample.Models.Attributes
 {
+    /// <summary>
+    /// Attribute to ensure that an integer is an even number
+    /// </summary>
     public sealed class EvenNumberAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)

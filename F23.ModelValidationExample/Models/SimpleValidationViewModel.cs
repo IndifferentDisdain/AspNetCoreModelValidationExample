@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace F23.ModelValidationExample.Models
 {
+    /// <summary>
+    /// A simple viewmodel with built-in validation.
+    /// </summary>
     public class SimpleValidationViewModel
     {
         [Required]
