@@ -47,6 +47,16 @@ namespace F23.ModelValidationExample
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "better",
+                    pattern: "better",
+                    defaults: new { controller = "Home", action = "Better" }) ;
+
+                endpoints.MapControllerRoute(
+                    name: "best",
+                    pattern: "best",
+                    defaults: new { controller = "Home", action = "Best" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

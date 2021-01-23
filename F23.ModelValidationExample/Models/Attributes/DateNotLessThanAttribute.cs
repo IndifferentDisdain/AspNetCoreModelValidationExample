@@ -5,21 +5,21 @@ namespace F23.ModelValidationExample.Models.Attributes
 {
     public sealed class DateNotLessThanAttribute : ValidationAttribute
     {
-        private readonly string _comparisonProperty;
-
         public DateNotLessThanAttribute(string comparisonProperty)
         {
-            _comparisonProperty = comparisonProperty;
+            ComparisonProperty = comparisonProperty;
         }
+
+        public string ComparisonProperty { get; }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var property = validationContext.ObjectType.GetProperty(_comparisonProperty);
+            var property = validationContext.ObjectType.GetProperty(ComparisonProperty);
             if (property == null)
-                throw new ArgumentException($"Property {_comparisonProperty} not found.");
+                throw new ArgumentException($"Property {ComparisonProperty} not found.");
 
             if (property.PropertyType != typeof(DateTime?) && property.PropertyType != typeof(DateTime))
-                throw new ArgumentException($"Property {_comparisonProperty} is not DateTime? or DateTime.");
+                throw new ArgumentException($"Property {ComparisonProperty} is not DateTime? or DateTime.");
 
             var fromDate = (DateTime?)property.GetValue(validationContext.ObjectInstance);
             var toDate = (DateTime?)value;
@@ -28,7 +28,7 @@ namespace F23.ModelValidationExample.Models.Attributes
                 return ValidationResult.Success;
 
             if (toDate < fromDate)
-                return new ValidationResult(ErrorMessage ?? $"{_comparisonProperty} is less than the value.");
+                return new ValidationResult(ErrorMessage ?? $"{ComparisonProperty} is less than the value.");
 
             return ValidationResult.Success;
         }

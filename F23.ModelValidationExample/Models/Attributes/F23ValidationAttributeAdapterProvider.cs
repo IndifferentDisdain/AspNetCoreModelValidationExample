@@ -18,8 +18,10 @@ namespace F23.ModelValidationExample.Models.Attributes
             IAttributeAdapter adapter;
             if (attribute is EvenNumberAttribute)
                 adapter = new EvenNumberAttributeAdapter((EvenNumberAttribute)attribute, stringLocalizer);
+            else if (attribute is DateNotLessThanAttribute)
+                adapter = new DateNotLessThanAttributeAdapter((DateNotLessThanAttribute)attribute, stringLocalizer);
             else
-                adapter = base.GetAttributeAdapter(attribute, stringLocalizer);
+                adapter = GetAttributeAdapter(attribute, stringLocalizer);
 
             return adapter;
         }

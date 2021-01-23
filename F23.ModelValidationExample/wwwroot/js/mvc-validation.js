@@ -127,6 +127,17 @@ function validate(formcontrol) {
         }
     }
 
+    // Date not less than
+    if (ds.valDateNotLessThan) {
+        var sourceDate = new Date(element.value);
+        var targetDate = new Date($("#" + ds.valDateNotLessThanTarget).val());
+
+        if (sourceDate < targetDate) {
+            invalidateControl(element, valMsgSpan, ds.valDateNotLessThan);
+            return;
+        }
+    }
+
     // If everything passes, then we're good
     valMsgSpan.forEach(function (msg) {
         msg.innerText = '';
